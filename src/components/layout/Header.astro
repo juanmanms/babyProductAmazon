@@ -1,0 +1,24 @@
+---
+import { containerClass } from '../../styles/utils';
+---
+
+<header class="bg-white border-b border-border py-4 sticky top-0 z-50">
+  <div class={containerClass}>
+    <nav class="flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold text-text-primary hover:text-primary-dark transition-colors">
+        BabyProducts
+      </a>
+      <div class="space-x-8">
+        <a href="/#productos-destacados" class="text-text-secondary hover:text-primary-dark transition-colors">
+          Destacados
+        </a>
+        <a href="/#categorias" class="text-text-secondary hover:text-primary-dark transition-colors">
+          Categorías
+        </a>
+        <a href="/blog" class="text-text-secondary hover:text-primary-dark transition-colors">
+          Blog
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>

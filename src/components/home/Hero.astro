@@ -1,0 +1,25 @@
+---
+import Button from '../ui/Button.astro';
+import { containerClass } from '../../styles/utils';
+---
+
+<section class="bg-primary-light py-20">
+  <div class={containerClass}>
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-text-primary mb-6">
+        Todo lo que tu Bebé Necesita
+      </h1>
+      <p class="text-xl text-text-secondary mb-8">
+        Descubre nuestra selección de los mejores productos para bebé, cuidadosamente elegidos para ti
+      </p>
+      <div class="flex justify-center gap-4">
+        <Button href="#productos-destacados" variant="accent">
+          Ver Productos Destacados
+        </Button>
+        <Button href="#categorias" variant="secondary">
+          Explorar Categorías
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
