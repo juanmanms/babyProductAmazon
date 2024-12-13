@@ -1,0 +1,46 @@
+---
+import type { BlogPost } from "../types/blog";
+import Layout from "./Layout.astro";
+
+interface Props {
+  post: BlogPost;
+}
+const { post } = Astro.props;
+---
+
+<Layout
+  title={post.title}
+  description={post.metaDescription}
+  keywords={post.keywords}
+  ogImage={post.imageUrl}
+>
+  <article class="max-w-4xl mx-auto px-4 py-12">
+    <img
+      src={post.imageUrl}
+      alt={post.title}
+      class="w-full h-64 md:h-96 object-cover rounded-lg mb-8"
+    />
+
+    <header class="mb-8">
+      <div class="flex items-center text-sm text-gray-500 mb-4">
+        <time datetime={post.publishDate}>
+          {
+            new Date(post.publishDate).toLocaleDateString("es-ES", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
+        </time>
+        <span class="mx-2">·</span>
+        <span>{post.author}</span>
+      </div>
+      <h1 class="text-4xl font-bold mb-4">{post.title}</h1>
+    </header>
+    <!-- <Markdown content={post.content} /> -->
+    <div class="prose max-w-none">
+      <!-- {Astro.markdown(post.content)} -->
+      {post.content}
+    </div>
+  </article>
+</Layout>

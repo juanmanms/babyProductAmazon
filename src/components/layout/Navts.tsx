@@ -25,12 +25,12 @@ const Navts = () => {
   const links = [
     { href: "/", label: "Inicio" },
     { href: "/#productos-destacados", label: "Destacados" },
-    { href: "#categorias", label: "Categorias" },
+    { href: "/#categorias", label: "Categorias" },
     { href: "/blog", label: "Blog" },
   ];
 
   return (
-    <>
+    <div>
       <nav className="max-w-6xl mx-auto p-4 flex justify-between items-center">
         <ul className="hidden md:flex gap-8 list-none">
           {links.map((link) => (
@@ -60,7 +60,7 @@ const Navts = () => {
           ))}
         </nav>
       )}
-    </>
+    </div>
 
 
   );
