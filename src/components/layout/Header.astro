@@ -1,5 +1,6 @@
 ---
 import { containerClass } from '../../styles/utils';
+import Navts from './Navts';
 ---
 
 <header class="bg-white border-b border-border py-4 sticky top-0 z-50">
@@ -9,15 +10,8 @@ import { containerClass } from '../../styles/utils';
         BabyProducts
       </a>
       <div class="space-x-8">
-        <a href="/#productos-destacados" class="text-text-secondary hover:text-primary-dark transition-colors">
-          Destacados
-        </a>
-        <a href="/#categorias" class="text-text-secondary hover:text-primary-dark transition-colors">
-          Categorías
-        </a>
-        <a href="/blog" class="text-text-secondary hover:text-primary-dark transition-colors">
-          Blog
-        </a>
+        
+        <Navts />
       </div>
     </nav>
   </div>
