@@ -1,8 +1,8 @@
 ---
 import PostLayout from "../../layouts/PostLayout.astro";
-import { blogPosts } from "../../data/blog-posts";
+import posts from "../../data/connectNotion";
 export function getStaticPaths() {
-  return blogPosts.map((post) => ({
+  return posts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
   }));
