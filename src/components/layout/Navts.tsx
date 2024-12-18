@@ -47,18 +47,38 @@ const Navts = () => {
       </nav>
       {/* Mobile Menu */}
       {isOpen && (
-        <nav className="md:hidden">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="block py-2 text-gray-600 hover:text-blue-600"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        <>
+          <div
+            className={`fixed inset-0 bg-black bg-opacity-50 z-50 ${isOpen ? 'block' : 'hidden'
+              }`}
+            onClick={() => setIsOpen(false)}
+          />
+          <div
+            className={`fixed top-0 right-0 w-64 h-full bg-white shadow-lg z-50 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'
+              } transition-transform duration-300`}
+          >
+            <button className="absolute top-4 right-4" onClick={toggleMenu}>
+              <X size={24} />
+            </button>
+            <nav className="mt-16">
+              <div className="flex flex-col space-y-2">
+                {links.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="py-2 px-4 text-gray-600 hover:text-blue-600"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+              {/* Add a focusable element to close the menu with keyboard */}
+              <a href="#" className="text-xs text-gray-600 absolute top-4 right-12" onClick={() => setIsOpen(false)}>
+              </a>
+            </nav>
+          </div>
+        </>
       )}
     </div>
 
