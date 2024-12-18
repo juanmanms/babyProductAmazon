@@ -1,9 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import ProductCard from '../../components/ProductCard.astro';
-import CategoryFilter from '../../components/CategoryFilter.astro';
-import { products } from '../../data/products';
-import { categoryMeta } from '../../data/categories';
+import Layout from "../../layouts/Layout.astro";
+import ProductCard from "../../components/ProductCard.astro";
+import CategoryFilter from "../../components/CategoryFilter.astro";
+import { products } from "../../data/products";
+import { categoryMeta } from "../../data/categories";
+import ProductComparisonTable from "../../components/products/ProductComparisonTable.astro";
 
 export function getStaticPaths() {
   return categoryMeta.map(({ id }) => ({
@@ -13,11 +14,40 @@ export function getStaticPaths() {
 
 const { category } = Astro.params;
 const meta = categoryMeta.find((c) => c.id === category);
-const filteredProducts = products.filter((product) => product.category === category);
+const filteredProducts = products.filter(
+  (product) => product.category === category
+);
 
 if (!meta) {
-  return Astro.redirect('/404');
+  return Astro.redirect("/404");
 }
+
+const mejores_productoss_categoria = [
+  {
+    name: "Producto A",
+    image: "/placeholder.svg?height=100&width=100",
+    price: 99.99,
+    rating: 4.5,
+    features: ["Característica 1", "Característica 2", "Característica 3"],
+    url: "/product-a",
+  },
+  {
+    name: "Producto B",
+    image: "/placeholder.svg?height=100&width=100",
+    price: 89.99,
+    rating: 4.2,
+    features: ["Característica 1", "Característica 2", "Característica 3"],
+    url: "/product-b",
+  },
+  {
+    name: "Producto C",
+    image: "/placeholder.svg?height=100&width=100",
+    price: 109.99,
+    rating: 4.7,
+    features: ["Característica 1", "Característica 2", "Característica 3"],
+    url: "/product-c",
+  },
+];
 ---
 
 <Layout
@@ -32,11 +62,12 @@ if (!meta) {
       <p class="text-lg max-w-3xl">{meta.description}</p>
     </div>
   </div>
-  
+
   <div class="container mx-auto px-4 py-12">
     <CategoryFilter activeCategory={category} />
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {filteredProducts.map((product) => <ProductCard product={product} />)}
     </div>
+    <ProductComparisonTable products={mejores_productoss_categoria} />
   </div>
 </Layout>
