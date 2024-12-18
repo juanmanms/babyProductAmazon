@@ -1,5 +1,5 @@
 ---
-import { categories } from '../data/products';
+import { categories } from "../data/products";
 
 interface Props {
   activeCategory?: string;
@@ -13,18 +13,19 @@ const { activeCategory } = Astro.props;
   <div class="flex flex-wrap gap-2">
     <a
       href="/"
-      class={`px-4 py-2 rounded ${!activeCategory ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700'}`}
+      class={`px-4 py-2 rounded ${!activeCategory ? "bg-purple-600 text-white" : "bg-gray-200 text-gray-700"}`}
     >
       Todos
     </a>
     {
       categories.map((category) => (
         <a
-          href={`/category/${category}`}
+          href={`/categorias/${category}`}
           class={`px-4 py-2 rounded capitalize ${
-            activeCategory === category ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700'
-          }`}
-        >
+            activeCategory === category
+              ? "bg-purple-600 text-white"
+              : "bg-gray-200 text-gray-700"
+          }`}>
           {category}
         </a>
       ))
