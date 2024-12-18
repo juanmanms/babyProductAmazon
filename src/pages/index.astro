@@ -1,26 +1,23 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import CategoryGrid from '../components/CategoryGrid.astro';
-import FeaturedProducts from '../components/FeaturedProducts.astro';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import CategoryGrid from "../components/CategoryGrid.astro";
+import FeaturedProducts from "../components/FeaturedProducts.astro";
 
-const title = "BabyProducts | Los Mejores Productos para tu Bebé";
-const description = "Descubre nuestra selección de productos premium para bebé. Portabebés, seguridad, alimentación y más. Guías y recomendaciones para padres.";
+const title = "PequeNido | Los Mejores Productos para tu Bebé";
+const description =
+  "Descubre nuestra selección de productos premium para bebé. Portabebés, seguridad, alimentación y más. Guías y recomendaciones para padres.";
 const keywords = [
   "productos bebé",
   "artículos bebé",
   "accesorios bebé",
   "portabebés",
   "seguridad bebé",
-  "alimentación bebé"
+  "alimentación bebé",
 ];
 ---
 
-<Layout
-  title={title}
-  description={description}
-  keywords={keywords}
->
+<Layout title={title} description={description} keywords={keywords}>
   <Hero />
   <FeaturedProducts />
   <CategoryGrid />

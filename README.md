@@ -1,54 +1,43 @@
-# Astro Starter Kit: Basics
+# Proyecto de Prueba: Astro y Notion
 
-```sh
-npm create astro@latest -- --template basics
-```
+Este es un proyecto de prueba que utiliza Astro y Notion juntos. El objetivo de esta prueba es crear un proyecto de afiliado de Amazon para evaluar su viabilidad.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Instrucciones de Uso
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+1. Clona el repositorio:
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+   ```bash
+   git clone https://github.com/juanmanms/babyProductAmazon
+   cd tu-repositorio
+   ```
 
-## 🚀 Project Structure
+2. Instala las dependencias:
 
-Inside of your Astro project, you'll see the following folders and files:
+   ```bash
+   npm install
+   ```
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+3. Configura las variables de entorno:
+   Crea un archivo `.env` en la raíz del proyecto y añade las siguientes variables:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+   ```plaintext
+   NOTION_API_KEY=tu_notion_api_key
+   AMAZON_ASSOCIATE_TAG=tu_amazon_associate_tag
+   ```
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+4. Inicia el servidor de desarrollo:
 
-Any static assets, like images, can be placed in the `public/` directory.
+   ```bash
+   npm run dev
+   ```
 
-## 🧞 Commands
+5. Abre tu navegador y navega a `http://localhost:4321` para ver el proyecto en acción.
 
-All commands are run from the root of the project, from a terminal:
+## Detalles Adicionales
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- Asegúrate de tener una cuenta de Notion y haber creado una integración para obtener tu `NOTION_API_KEY`.
+- Regístrate en el programa de afiliados de Amazon para obtener tu `AMAZON_ASSOCIATE_TAG`.
 
-## 👀 Want to learn more?
+Si tienes alguna pregunta o encuentras algún problema, no dudes en abrir un issue en el repositorio.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+¡Buena suerte con tu proyecto de prueba!
