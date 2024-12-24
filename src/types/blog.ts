@@ -10,4 +10,5 @@ export interface BlogPost {
   imageUrl: string;
   metaDescription: string;
   keywords: string[];
+  draft: boolean;
 }

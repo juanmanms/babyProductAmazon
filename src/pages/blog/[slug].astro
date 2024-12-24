@@ -1,13 +1,25 @@
 ---
+import { getPosts, getPostBySlug } from "../../data/connectNotion";
 import PostLayout from "../../layouts/PostLayout.astro";
-import posts from "../../data/connectNotion";
-export function getStaticPaths() {
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
   return posts.map((post) => ({
     params: { slug: post.slug },
-    props: { post },
   }));
 }
-const { post } = Astro.props;
+
+const { slug } = Astro.params;
+const posts = await getPosts();
+const postIndex = posts.findIndex((post) => post.slug === slug);
+const post = posts[postIndex];
+
+if (!post) {
+  throw new Error(`Post not found for slug: ${slug}`);
+}
+
+const previousPost = postIndex > 0 ? posts[postIndex - 1] : null;
+const nextPost = postIndex < posts.length - 1 ? posts[postIndex + 1] : null;
 ---
 
-<PostLayout post={post} />
+<PostLayout post={post} previousPost={previousPost} nextPost={nextPost} />

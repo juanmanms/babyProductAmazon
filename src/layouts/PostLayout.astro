@@ -5,8 +5,10 @@ import { marked } from "marked";
 
 interface Props {
   post: BlogPost;
+  previousPost: BlogPost | null;
+  nextPost: BlogPost | null;
 }
-const { post } = Astro.props;
+const { post, previousPost, nextPost } = Astro.props;
 const htmlContent = marked(post.content);
 ---
 
@@ -41,5 +43,32 @@ const htmlContent = marked(post.content);
     </header>
 
     <div class="prose max-w-none" set:html={htmlContent} />
+
+    <nav class="mt-8">
+      <ul class="flex justify-between">
+        {
+          previousPost && (
+            <li>
+              <a
+                href={`/blog/${previousPost.slug}`}
+                class="text-blue-500 hover:underline">
+                &larr; {previousPost.title}
+              </a>
+            </li>
+          )
+        }
+        {
+          nextPost && (
+            <li>
+              <a
+                href={`/blog/${nextPost.slug}`}
+                class="text-blue-500 hover:underline">
+                {nextPost.title} &rarr;
+              </a>
+            </li>
+          )
+        }
+      </ul>
+    </nav>
   </article>
 </Layout>

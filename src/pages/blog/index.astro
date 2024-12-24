@@ -1,7 +1,10 @@
 ---
+import { getPosts } from "../../data/connectNotion";
 import Layout from "../../layouts/Layout.astro";
 import BlogCard from "../../components/BlogCard.astro";
-import posts from "../../data/connectNotion";
+
+const posts = await getPosts();
+const filteredPosts = posts.filter((post) => !post.draft);
 
 const title = "Blog | Consejos y Guías para Padres";
 const description =
@@ -27,7 +30,7 @@ const keywords = [
 
   <div class="container mx-auto px-4 py-12">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {posts.map((post) => <BlogCard post={post} />)}
+      {filteredPosts.map((post) => <BlogCard post={post} />)}
     </div>
   </div>
 </Layout>
